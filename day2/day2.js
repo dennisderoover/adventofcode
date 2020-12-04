@@ -9,6 +9,8 @@ textByLine.forEach(line => {
   })
 })
 
+// PART 1
+
 var count = 0;
 
 linesAsObjs.forEach(line => {
@@ -20,4 +22,20 @@ linesAsObjs.forEach(line => {
     count++;
   }
 })
+console.log(count);
+
+// PART 2
+
+count = 0;
+
+linesAsObjs.forEach(line => {
+  const pos1 = parseInt(line.policy.split(' ')[0].split('-')[0], 10);
+  const pos2 = parseInt(line.policy.split(' ')[0].split('-')[1], 10);
+  const letter = line.policy.split(' ')[1];
+
+  if ((line.password.charAt(pos1 - 1) === letter || line.password.charAt(pos2 - 1) === letter) && !(line.password.charAt(pos1 - 1) === letter && line.password.charAt(pos2 - 1) === letter) ) {
+    count++
+  }
+})
+
 console.log(count);
